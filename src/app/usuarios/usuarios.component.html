@@ -1,0 +1,95 @@
+<section *ngIf="checkUsuarios() == 1">
+    <h1 class="titulo">Listado de XP'sharers</h1>
+
+    <div class="container" style="margin-bottom: 20%">
+        <div class="">
+            <table class="table table-sm table-hover"
+                style="background-color: #f184ff; border-color:#63296b; border-style: inset;">
+                <thead>
+                    <tr style="flex: auto;">
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Contacto</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let usuario of usuarios">
+                        <td style="text-align: center;">{{ usuario.id}}</td>
+                        <td>{{ usuario.nombre}}</td>
+                        <td>{{ usuario.apellido}}</td>
+                        <td>{{ usuario.email}}</td>
+
+                        <p *ngFor="let conocimiento of usuario.conocimiento">
+                            <td>{{conocimiento.nombre}}</td>
+                        </p>
+
+                        <td> <span *ngIf="usuario.apellido == null; else apellidoIncompleto">Ausente</span>
+                            <ng-template #apellidoIncompleto>Válidado</ng-template>
+                        </td>
+
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <span><button style="background-color: rgb(33, 172, 33);" class="btn btn-primary"
+                                        href="../usuario" routerLink="../usuario" (click)="ver(usuario)">Ver</button>
+                                </span>
+                                <!--(click)="ver(usuario)">Ver</button>-->
+                                <!--
+                                <span *ngIf="checkLogin(usuario)"><button class="btn btn-primary"
+                                    (click)="edit(usuario)">Editar</button>
+                                </span>
+                                -->
+                                <!--
+                                <span *ngIf="getAdmin()"><button class="btn btn-danger"
+                                        (click)="delete(usuario.id)">Eliminar</button></span>
+                                -->
+                            </div>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <hr>
+    <br><br><br><br>
+</section>
+
+<section *ngIf="checkUsuarios() == 0">
+    <h1 class="titulo">La lista de usuarios está vácia</h1>
+</section>
+
+
+<!--
+    <div class="col-md-6">
+        <h3>{{ editandoUsuario ? 'Editar' : 'Nuevo' }} Usuario</h3>
+
+        <form class="mt-5" [formGroup]="formulario"(ngSubmit)="save()" autocomplete="off">
+            <div class="mb-2">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" type="text" placeholder="Nombre" class="form-control" formControlName="nombre">
+                
+                <label for="apellido">Apellido</label>
+                <input id="apellido" type="text" placeholder="Apellido" class="form-control" formControlName="apellido">
+
+                <label for="email">Email</label>
+                <input id="email" type="text" placeholder="Email" class="form-control" formControlName="email">
+            </div>
+            
+            <div class="mb-2-form-check">
+                <label><input type="checkbox" class="form-check-input">Completado</label>
+                
+            </div>
+
+            <div class="text-end">
+                <button class="btn btn-primary">Guardar</button>
+            </div>
+
+        </form>
+    </div>
+    -->

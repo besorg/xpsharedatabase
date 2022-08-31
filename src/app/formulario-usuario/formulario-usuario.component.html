@@ -1,0 +1,142 @@
+<span *ngIf="checkislogin() == true">
+    <h1 class="titulo">Tu Porfolio
+    <span *ngIf="checklogin() == true">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flat_cross_icon.svg/512px-Flat_cross_icon.svg.png?20170316053531" 
+            style="text-align: right; width: 40px; height: 40px;" 
+            onmouseenter="style='cursor: pointer; text-align: right; width: 40px; height: 40px;'"
+            onmouseleave="style='cursor: auto; text-align: right; width: 40px; height: 40px;'"
+        (click)='
+            deleteOrder();
+            '>
+        </span>
+    </h1>
+</span>
+<span *ngIf="checkislogin() == false">
+    <h1 class="titulo">Viendo Porfolio de {{viendoUsuario.nombre}}
+    <span *ngIf="checklogin() == true">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flat_cross_icon.svg/512px-Flat_cross_icon.svg.png?20170316053531" 
+        style="text-align: right; width: 40px; height: 40px;" 
+        onmouseenter="style='cursor: pointer; text-align: right; width: 40px; height: 40px;'"
+        onmouseleave="style='cursor: auto; text-align: right; width: 40px; height: 40px;'"
+    (click)='
+        deleteOrder();
+        '>
+    </span>
+    </h1>
+</span>
+
+<!--
+    <form class="mt-5" [formGroup]="formulario" autocomplete="off">
+        <div class="mb-2">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" type="text" placeholder="Nombre" class="form-control" formControlName="nombre">
+
+            <label for="apellido">Apellido</label>
+            <input id="apellido" type="text" placeholder="Apellido" class="form-control" formControlName="apellido">
+
+            <label for="email">Email</label>
+            <input id="email" type="text" placeholder="Email" class="form-control" formControlName="email">
+        </div>
+
+        
+        <div class="mb-2-form-check">
+            <label><input type="checkbox" class="form-check-input">Completado</label>
+
+        </div>
+
+            <div class="text-end">
+                <button class="btn btn-primary">Guardar</button>
+            </div>
+
+    </form>
+            -->
+
+<div class="contact1" style="background-color: white;">
+    <div class="container-contact1">
+        <div class="contact1-pic js-tilt"
+            style="will-change: transform; transform: perspective(300px) rotateX(0deg) rotateY(0deg); width: 45%;">
+            <img src="https://static.vecteezy.com/system/resources/previews/006/042/321/non_2x/head-man-profile-silhouette-free-vector.jpg"
+                alt="IMG">
+        </div>
+        <form class="contact1-form validate-form" [formGroup]="formulario">
+            <span class="contact1-form-title">
+                Información Personal
+            </span>
+            <div class="wrap-input1 validate-input">
+                <input id="minombre" class="input1" type="text" name="nombre" placeholder="Nombre" readonly>
+                <span class="shadow-input1"></span>
+            </div>
+            <div class="wrap-input1 validate-input">
+                <input id="miapellido" class="input1" type="text" name="apellido" placeholder="Apellido" readonly>
+                <span class="shadow-input1"></span>
+            </div>
+            <div class="wrap-input1 validate-input">
+                <input id="miemail" class="input1" type="text" name="email" placeholder="Email" readonly>
+                <span class="shadow-input1"></span>
+            </div>
+            <div class="wrap-input1 validate-input">
+                <textarea id="sobremitexto" class="input1" name="descripcion" placeholder="Sobre mí" readonly></textarea>
+                <span class="shadow-input1"></span>
+            </div>
+            <div *ngIf="editable" class="container-contact1-form-btn">
+                <button class="contact1-form-btn" (click)="saveChanges()">
+                    <span>
+                        Guardar cambios
+                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                    </span>
+                </button>
+            </div>
+
+
+        </form>
+        
+
+</div>
+
+
+
+
+
+<div style="display: block;justify-content: center; background-color: rgb(255, 255, 255);">
+        <br>
+        <hr>
+        <br>
+        <h2 style="display: contents; text-align: center; max-width: 100%; ">Conocimientos y habilidades <img src="https://static.vecteezy.com/system/resources/previews/000/582/976/non_2x/button-plus-icon-vector.jpg
+            " alt="" style="max-width: 40px; position: relative; float: left;" (click)="edit(0);"
+            ></h2>
+        
+            
+        <br>
+        <br>
+        <hr>
+        <br>
+
+        
+    <div >
+        <div *ngFor="let conocimiento of viendoUsuario.listaConocimientos" style="display: flex;justify-content: center;align-items: center;">
+            <span style=" max-width: 600px; display: flexbox; align-content: center;">
+                <input name="cn" id={{conocimiento.id}} class="input1" type="text"  (mouseenter)="onMouseClick();" placeholder={{conocimiento.nombre}} value={{conocimiento.nombre}} readonly>
+                
+
+                <div style="position: relative;">
+                    <textarea name="ta" id={{conocimiento.id}} cols="64" rows="6"  (mouseenter)="onMouseClick();" placeholder={{conocimiento.descripcion}} style="background-color:  azure; border-radius: 6px; text-align: center; margin: 6px;" readonly>{{conocimiento.descripcion}}</textarea>
+                    <b *ngIf="checklogin()">
+                        <img name="im" (click)="delcon($event.target)" id={{conocimiento.id}} style="max-width: 32px; position: absolute; right: 12px; bottom: 170px;"
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flat_cross_icon.svg/512px-Flat_cross_icon.svg.png?20170316053531" alt="">
+                    </b>
+                    <br>
+                </div>
+            </span>
+        </div>
+        <br><br><br>
+        <br><br><br>
+        <br><br><br>
+        <br><br><br>
+    </div>
+
+<!--
+    https://static.vecteezy.com/system/resources/previews/000/495/406/non_2x/wrench-line-black-icon-vector.jpg 
+-->
+
+</div>
+

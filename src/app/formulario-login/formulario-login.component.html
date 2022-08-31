@@ -1,0 +1,59 @@
+<h1 class="titulo">Ingresar a XP Share Database</h1>
+
+
+
+<section style="display: flex; justify-content: space-evenly; align-items: center; flex-wrap: wrap;">
+    <form [formGroup]="formulario" (ngSubmit)="login()" autocomplete="off">
+
+        <div style="text-align: center; width: 400px;">
+            <label for="nombre">Usuario</label>
+            <input id="nombre" type="text" placeholder="Usuario" class="form-control" formControlName="nombre">
+
+            <label for="passcode">Contraseña</label>
+            <input id="passcode" type="password" placeholder="Contraseña" class="form-control"
+                formControlName="passcode">
+        </div>
+        <!--
+            <div class="mb-2-form-check">
+                <label><input type="checkbox" class="form-check-input">Completado</label>
+                
+            </div>
+            -->
+
+
+
+        <br>
+        <div style="display: flex; justify-content: space-evenly; align-items: center; flex-wrap: wrap;">
+            <button class="btn btn-primary">Ingresar</button>
+        </div>
+
+    </form>
+</section>
+
+
+
+<!--
+<span *ngIf="datos_recuperados!=null">
+    <span *ngIf="datos_locales.nombre!=''">
+        <ul>
+            Nombre local {{datos_locales.nombre}}
+        </ul>
+    </span>
+
+    <span *ngIf="datos_recuperados.nombre!=''">
+        <ul>
+            Loggeado como {{datos_recuperados.nombre}}
+        </ul>
+    </span>
+</span>
+-->
+
+<br>
+<!--
+<span *ngIf='checklogin() == true'>
+    LOGIN CORRECTO
+</span>
+<span *ngIf='checklogin()==false'>
+    no LOGIN
+</span>
+-->

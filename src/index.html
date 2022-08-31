@@ -1,13 +1,82 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>XpFrontend</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>XP Share Database</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans" rel="stylesheet" type="text/css"/>
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="body">
+
+    
+    <nav class="menu-navegacion">
+        <!-- 
+        <a href routerLink="/home">Inicio</a> 
+        -->
+        <a href="/registrar" routerLink="/registrar">Registro</a>
+        <a href="/bso" routerLink="/bso">Sobre BSO</a>
+
+        <span onclick="localStorage.setItem('admin', 'false');localStorage.setItem('usuario', '');localStorage.setItem('passcode', '');">
+          <a href="/login" >Cerrar Sesión</a>
+        </span>
+    </nav>
+    
+      
+      
+     <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="position: auto; width: 100%; z-index: 1; background-color: blueviolet;">
+        <ul class="navbar-nav">
+          <a class="nav-link" href="/home" routerLink="" routerLinkActive="active">Home</a>
+          <a class="nav-link" href="/usuarios" routerLink="usuarios" routerLinkActive="active">XP Share Database</a>
+          <a id="my-usuario" class="nav-link" href="/my-usuario" routerLink="my-usuario" routerLinkActive="active">Mi XP Share</a>
+          <a class="nav-link" href="/info" routerLink="info" routerLinkActive="active">Info</a>
+          <a class="nav-link" href="/contacto" routerLink="contacto" routerLinkActive="active">Contacto</a>
+        </ul>
+     </nav>
+      <!-- <h1 class="text-center" style="background: #9f8ad0;">{{ title }}</h1> -->
+      
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3WH3C_hXNmb-Lb9lDwUbvyZkZ2GMNCQ7Guw&usqp=CAU" class="hamburguesa" 
+          onclick="document.querySelector('.menu-navegacion').classList.toggle('spread');"
+      >
+      
+    <!--
+    <div class="contenedor head">
+    </div>
+    -->
+
+
+    <app-root ></app-root>
+
+    
+    <footer id="contacto">
+      <div class="contenedor footer-content">
+        <div class="contact-us">
+          <h2 class="brand">BSO</h2>
+          <p class="brandp">Creando mundos</p>
+        </div>
+        <div class="social-media">
+          <a href="https://www.twitch.tv/bsa_" class="social-media-icon">
+            <i class="bx bxl-twitch"></i>
+          </a>
+          <a href="https://www.youtube.com/channel/UCbTYudlOI4uUr0L4Lhko8Tw" class="social-media-icon">
+            <i class="bx bxl-youtube"></i>
+          </a>
+          <a href="https://store.steampowered.com/search/?developer=BSO" class="social-media-icon">
+            <i class="bx bxl-steam"></i>
+          </a>
+        </div>
+      </div>
+      <div class="line"></div>
+    </footer>
+
+    
+    <script src="./assets/js/menu.js"></script>
+    <script src="./assets/js/lightbox.js"></script>
+  </body>
 </html>
